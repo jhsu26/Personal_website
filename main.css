@@ -1,0 +1,91 @@
+
+body {
+
+}
+
+#title {
+	font-size: 175%;
+	font-family: "Quicksand";
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+#about{
+	padding-top: 5%;
+}
+
+#projects, #work {
+	z-index: 1;
+	perspective: 1000;
+}
+
+.project-tile, .work-tile {
+	margin: 0;
+	padding: 0;
+	transform-style: preserve-3d;
+	transition: all 1.0s linear;
+}
+
+.project-tile:hover, .work-tile:hover {
+	transform: rotateY(180deg);
+	cursor:pointer;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	
+}
+
+.front{
+	width: 100%;
+	height: 100%;
+	backface-visibility:hidden;
+	position: absolute;
+}
+
+.back {
+	transform: rotateY(180deg);
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+
+#activities {
+}
+
+#contact {
+	text-align: center;
+}
+
+#footer {
+	background-color: #2f2f2f;
+	color: white;
+  	padding: 3%;
+  	text-align: center;
+}
+
+.img-thumbnail {
+	width: 50%;
+	height: 50%;
+	margin: 0 25%;
+}
+
+
+.header {
+	font-family: "Poiret One";
+	text-align: center;
+	padding-top: 20px;
+}
+
+.navbar {
+	padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}

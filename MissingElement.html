@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Missing Element</title>
+<style>
+body {
+	background-color: #4bd24c;
+	font-family: "Verdana";
+	width: 100%;
+	height: 100%;
+}
+
+.title {
+	text-align: center;
+}
+.container {
+	height: 100%;
+	width: 50%;
+	margin: auto;
+	top: 0;
+	display: table;
+	text-align: center;
+	background-color: #c9fb97;
+	border: 20px #499326 solid;
+	padding: 0 1%;
+	
+	
+	
+}
+.intro {
+	display: table-row;
+	text-align: left;
+}
+.content {
+	margin: 0 25%;
+	text-align: center;
+	width: auto;
+	height: auto;
+	display: table-row;
+	
+}
+
+#results {
+}
+</style>
+</head>
+<body>
+	<div class="container">
+
+	<div class="title"> <h1> The Missing Element</h1> </div>
+	<div class="intro"> 
+		<p> I completed this programming challenge for the internship program at <a href="http://www.klsoftwaretechnologies.com/">KL Software Technologies</a>. 
+		The full description of the challenge can be found <a href="http://www.klsoftwaretechnologies.com/solve-programming-challenge">here</a>. <br><br>
+		Summary description: The user enters an arithmetic sequence with exactly ONE missing term and this program will determine the missing element. The number of terms
+		in the first input parameter must be 3 ≤ n ≤ 2500. This parameter must match the number of elements in the sequenced entered below. <br><br>
+		Example: <br>
+		Number of terms: 5 <br>
+		Sequence: 2 4 8 10 12 <br>
+		Missing term: 6 <br>
+		Common difference: 2
+		<br><br>
+		Note: If you have any comments, questions, concerns, constructive criticism, etc, or find any errors, please let <a href="home.html">me</a> know. 
+		</p>
+	</div>
+	<div class="content">
+			Enter number of terms: <input type="number" id="terms"> <br> <br>
+			Enter arithmetic sequence: <br>
+			(Space between each integer) <br> 
+			<textarea id="series" row="15" cols="30"></textarea> <br> <br>
+			
+			<button onclick="missing()"> Find missing element</button>	 <br> <br>	
+		<div id="results"></div> <br>
+	</div>
+	</div>
+<script>
+
+function integer(num) {
+	return num%1==0;
+}
+
+function missing() {
+	var num = document.getElementById("terms").value;
+	var series = document.getElementById("series").value;
+	if (num == null || num =="" || !integer(num)) {
+		alert("Please enter number of terms. Must be an integer.");
+		return ;
+	} else if (num < 3 || num >2500) {
+		alert("Number of terms must be at least 3 and less than 2500.");
+		return;
+	} 
+	if (series == null || series=="") {
+		alert("Please enter an arithmetic sequence.")
+		return ;
+	}
+	
+	var the_terms = series.split(" ");
+	
+	//validate the series here
+	
+	if (the_terms.length != num) {
+		alert("Number of terms must match number of integers in the sequence!");
+		return;
+	}
+	var missing = 0; //the missing term
+	var dif = 0; //real common difference
+	var a=0;
+	var b=0;
+	var c=0;
+	
+	if (num == 3) {
+		a = the_terms[1] - the_terms[0];
+		b = the_terms[2] - the_terms[1];
+		if (a==b) {
+			dif = a;
+			missing = the_terms[2] - (-dif);
+		} else if (a != b) {
+			if (a<0 || b<0) {
+				dif = Math.max(a, b);
+			} else {
+				dif = Math.min(a, b);
+			}
+			if (dif == a) {
+				missing = the_terms[1] - (-dif);
+			} else if (dif == b) {
+				missing = the_terms[1] - dif;
+			}
+		}
+	} else if (num > 3) {
+		 a = the_terms[1] - the_terms[0]; 
+		 b = the_terms[2] - the_terms[1];
+		 c = the_terms[3] - the_terms[2];
+	
+		if (a==b) {
+			dif = a;
+		} else if (a != b && a == c) {
+			dif = a;
+		} else if (a!=b && b == c) {
+			dif = b;
+		}
+	
+		//finding the missing term
+		var j;
+		for (j=0; j<num-1; j++) {
+			var e = the_terms[j+1] - the_terms[j];
+				if (e != dif) {
+					missing = the_terms[j] - (-dif);
+					break;
+				} else {
+					missing = the_terms[num-1] - (-dif);
+				}
+		}
+		
+
+	}
+	document.getElementById("results").innerHTML = "Missing element: " + missing + "<br> Common difference: " + dif;
+}
+</script>
+
+</body>
+</html>
+
+

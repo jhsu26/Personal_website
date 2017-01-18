@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+
+#about {
+	padding: 20%;
+	text-align: center;
+	background-color: blue;
+	font-family: "Quicksand";
+	font-size: 200%;
+}
+
+
+#projects {
+	padding: 15%;
+	background-color: pink;
+	text-align: center;
+	
+}
+
+#projectPic {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	margin: 20px;
+}
+
+#members {
+	padding: 15%;
+	background-color: teal;
+	text-align: center;
+	
+}
+
+#memberPic1516 {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	margin: 5px;
+}
+
+.text {
+	/*visibility: hidden;*/
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	position: absolute;
+}
+
+#memberPic1516: hover {
+	opacity: 1;
+}
+
+/*
+.text: hover {
+	visibility: visible;
+	
+}*/
+
+#contact {
+	padding: 15%;
+	background-color: grey;
+	text-align: center;
+	
+}
+
+#footer {
+	text-align: center;
+}
+
+p {
+	font-family: "Arial";
+	font-size: 80%;
+}
