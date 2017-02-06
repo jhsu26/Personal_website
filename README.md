@@ -1,0 +1,2 @@
+# personal_website
+My personal website: www.jessicahsu.net. I created this domain before I discovered *free* github hosting, so while I wait for my domain name & web host account expires, I will be working on my new website hosted on github (jessica-hsu.github.io). I don't like my current web host. It's always logging me out for no reason and it takes way too long just to upload new files. Stay tuned. 
